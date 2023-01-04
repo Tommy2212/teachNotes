@@ -1,9 +1,16 @@
+const { error } = require('console')
 const express = require('express')
 const router = express.Router()
 const path = require('path')
 
 router.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'views', 'index.html'))
+})
+
+router.post('/', (req, res) => {
+    console.log(req.body.name)
+    throw (new error)
+    res.end();
 })
 
 router.all('*', (req, res) => {
